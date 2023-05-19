@@ -1,0 +1,9 @@
+SELECT ID_Vendedor,
+	year(FechaPrimeraVenta) AS Anio,
+	SUM(Monto)
+
+OVER (PARTITION BY year(FechaPrimeraVenta) AS Total,
+	FechaPrimeraVenta as ModFecha
+
+FROM Ventas
+ORDER BY ID_Vendedor
