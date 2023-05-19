@@ -1,3 +1,5 @@
+--Calcula el total del monto, particionando por fecha
+
 SELECT ID_Vendedor,
 	year(FechaPrimeraVenta) AS Anio,
 	SUM(Monto)
@@ -7,3 +9,13 @@ OVER (PARTITION BY year(FechaPrimeraVenta) AS Total,
 
 FROM Ventas
 ORDER BY ID_Vendedor
+
+
+--Output:
+
+ID_Vendedor   Anio       Total      Mod_fecha
+C01           2008      41600.00    2008-04-15
+C01           2008      41600.00    2008-06-23
+C01           2008      41600.00    2008-07-08
+C01           2009      55955.00    2009-03-22
+C01           2008      55955.00    2009-06-12
